@@ -1,32 +1,24 @@
-### Laravel Developer Test Task
+### Laravel Developer Test Task (Appfront)
 
-You are provided with a small Laravel application that displays a list of products and individual product details. Additionally, the application includes an admin interface for editing products, or alternatively, products can be edited using a command-line command.
-
-### Task Objectives
-Your goal is to refactor the provided application, focusing on the following:
+### Changes and Code refactoring
 
 - **Code Refactoring:**
-  - Improve the overall quality, readability, and maintainability of the code.
-  - **Apply Laravel best practices, design patterns, and standards suitable for enterprise-level applications.**
+    1. Centralized error handling.
+    2. Centralized image upload logic.
+    3. Centralized notification dispatch logic.
+    4. Refactored and improved validation logic.
+    5. Added a default placeholder for missing images.
+    6. Simplified product update logic by using $product->update($request->except('image')) to update product fields in the updateProduct method.
+    7. Graceful handling of missing products.
+    8. Defined validation rules for addProduct and updateProduct.
+    9. Refactored web.php for better readability and optimization.
+    10. Added middleware to prevent unnecessary login attempts for routes while already logged in.
+    11. Introduced layout files by creating a common layout and moved inline CSS from <style> tags into a `custom.css` file.
+    12. Added a fallback to the environment variable EXCHANGE_RATE in case the API call fails.
+    13. Moved the exchange rate fetching logic into a private method getExchangeRate.
+    14. Replaced cURL requests with Laravel's Http facade.
 
-- **Bug Fixing:**
-  - Identify and fix any existing bugs.
 
-- **Security Audit:**
-  - Perform a thorough security review.
-  - Implement necessary fixes and enhancements to secure the application.
-
-- **Improvements:**
-  - Implement any additional improvements that you consider beneficial (performance optimization, better code organization, etc.).
-
-### Important Constraints
-1. The visual appearance of the application in the browser must remain exactly the same.
-2. The existing functionality must be preserved completely.
-3. The structure of the database cannot be changed.
-
-Your final submission should demonstrate your ability to write clean, secure, and maintainable code adhering to industry standards.
-
-**Submission:**  
-Please provide a link to your public repository containing the refactored and improved code.
-
-Additionally, you may optionally include a list detailing the changes you've made or suggestions for further improvements.
+### Suggestions
+    1. Use soft delete by adding a is_deleted column in database table
+    2. Introduce data table for better representation and managing data
